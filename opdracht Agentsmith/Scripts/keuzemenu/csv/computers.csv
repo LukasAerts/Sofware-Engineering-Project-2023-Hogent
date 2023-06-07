@@ -1,0 +1,20 @@
+host;ou;description;dns
+trinity;OU=Servers,OU=DomainWorkstations;Webserver;2
+neo;OU=Servers,OU=DomainWorkstations;Exchange email server;3
+theoracle;OU=Servers,OU=DomainWorkstations;Synapse server;4
+dozer;OU=Servers,OU=DomainWorkstations;Quake js;5
+tank;OU=Servers,OU=DomainWorkstations;chat;6
+cypher;OU=Servers,OU=DomainWorkstations;misc;7
+morpheus;OU=Servers,OU=DomainWorkstations;backup admin;8
+apoc;OU=Servers,OU=DomainWorkstations;realm;9
+DirectorPC;OU=Directors,OU=Crew,OU=PCs,OU=DomainWorkstations;Workstation for the directors;
+PCCrew1;OU=Crew,OU=PCs,OU=DomainWorkstations;Workstation for the crew;
+PCCrew2;OU=Crew,OU=PCs,OU=DomainWorkstations;Workstation for the crew;
+PCCrew3;OU=Crew,OU=PCs,OU=DomainWorkstations;Workstation for the crew;
+PCCrew4;OU=Crew,OU=PCs,OU=DomainWorkstations;Workstation for the crew;
+PCCrew5;OU=Crew,OU=PCs,OU=DomainWorkstations;Workstation for the crew;
+PCCast1;OU=Cast,OU=PCs,OU=DomainWorkstations;Workstation for the cast;
+PCCast2;OU=Cast,OU=PCs,OU=DomainWorkstations;Workstation for the cast;
+PCCast3;OU=Cast,OU=PCs,OU=DomainWorkstations;Workstation for the cast;
+PCCast4;OU=Cast,OU=PCs,OU=DomainWorkstations;Workstation for the cast;
+PCCast5;OU=Cast,OU=PCs,OU=DomainWorkstations;Workstation for the cast;

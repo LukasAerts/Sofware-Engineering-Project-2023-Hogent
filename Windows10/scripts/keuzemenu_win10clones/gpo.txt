@@ -1,0 +1,54 @@
+* log in op de DirectorPc als THEMATRIX\Administrator
+* Start Server Manager
+  * Manage > add server > agentsmith
+
+* Start Group Policiy Management op (via Tools in Server Manager of via Windows Administrative Tools)
+  * Beleidsregel op gebruikersniveau: Enkel directors hebben toegang tot het control panel
+    * De GPO sep_01_controlpanel_domainusers_denied is reeds aangemaakt en gelinkt aan OU DomainUsers
+    * Edit en enable de GPO onder Group Policy Objects: User Configuration > Policies > Administrative templates > Control Panel > Prohibit access to Control Panel and PC settings
+    * De GPO sep_02_controlpanel_directors_allowed is reeds aangemaakt en gelinkt aan OU Directors
+    * Edit en **disable** de GPO onder Group Policy Objects: User Configuration > Policies > Administrative templates > Control Panel > Prohibit access to Control Panel and PC settings
+
+
+  * Beleidsregel op gebruikersniveau: Niemand kan werkbalken (toolbars) toevoegen aan de taakbalk
+    * De GPO sep_03_disable_toolbars is reeds aangemaakt en gelinkt aan OU DomainUsers
+    * Edit en enable de GPO onder Group Policy Objects: User Configuration > Policies > Administrative templates > Start Menu and Taskbar > Prevent users from adding or removing toolbars
+
+
+  * Beleidsregel op gebruikersniveau: De cast heeft geen toegang tot de eigenschappen van de netwerkadapters
+    * Wegens een eerdere GPO (geen toegang tot control panel) reeds onmogelijk te bereiken, maar voor de volledigheid ...
+    * De GPO sep_04_cast_no_networkadapters is reeds aangemaakt en gelinkt aan OU Cast
+    * Edit en enable de GPO onder Group Policy Objects: User Configuration > Policies > Administrative templates > Network > Network Connections > Prohibit access to properties of a LAN connection
+
+
+  * Volgende deliverables reeds ok via een fix maar mooier op te lossen via group policies:
+    * Cast kan enkel inloggen in de cast-Pc’s
+      * De GPO sep_05_cast_inloggen_op_castpcs is reeds aangemaakt en gelinkt aan de PC's van OU Cast
+      * Edit en Define de GPO onder Group Policy Objects: Computer Configuration > Policies > Windows Settings > Security Settings > Local Policies > User Rights Assignment > Allow log on locally
+      * Voeg Administrators, THEMATRIX\DirectorsSG en THEMATRIX\CastSG toe
+    * Crew kan enkel inloggen op de crew-Pc’s
+      * De GPO sep_06_crew_inloggen_op_crewpcs is reeds aangemaakt en gelinkt aan de PC's van OU Crew
+      * Edit en enable de GPO onder Group Policy Objects: Computer Configuration > Policies > Windows Settings > Security Settings > Local Policies > User Rights Assignment > Allow log on locally
+      * Voeg Administrators en THEMATRIX\CrewSG toe
+    * Directors kunnen overal inloggen
+      * De GPO sep_07_directors_inloggen_op_directorpcs is reeds aangemaakt en gelinkt aan de PC's van OU Directors
+      * Edit en enable de GPO onder Group Policy Objects: Computer Configuration > Policies > Windows Settings > Security Settings > Local Policies > User Rights Assignment > Allow log on locally
+      * Voeg Administrators en THEMATRIX\DirectorsSG toe
+  
+  
+  * Een leuk extraatje:
+    * Cast heeft een eigen wallpaper
+      * De GPO sep_08_cast_wallpaper is reeds aangemaakt en gelinkt aan OU Cast
+      * Edit en enable de GPO onder Group Policy Objects: User Configuration > Policies > Administrative Templates > Desktop > Desktop > Desktop Wallpaper
+        * Wallpaper name: \\agentsmith\WALLPAPER\cast.jpg
+        * Style: Span
+    * Crew heeft een eigen wallpaper
+      * De GPO sep_09_crew_wallpaper is reeds aangemaakt en gelinkt aan OU Crew
+      * Edit en enable de GPO onder Group Policy Objects: User Configuration > Policies > Administrative Templates > Desktop > Desktop > Desktop Wallpaper
+        * Wallpaper name: \\agentsmith\WALLPAPER\crew.jpg
+        * Style: Fill
+    * Directors hebben een eigen wallpaper
+      * De GPO sep_10_directors_wallpaper is reeds aangemaakt en gelinkt aan OU Directors
+      * Edit en enable de GPO onder Group Policy Objects: User Configuration > Policies > Administrative Templates > Desktop > Desktop > Desktop Wallpaper
+        * Wallpaper name: \\agentsmith\WALLPAPER\directors.jpeg
+        * Style: Fit

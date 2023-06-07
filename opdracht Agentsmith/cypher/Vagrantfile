@@ -1,0 +1,27 @@
+VAGRANTFILE_API_VERSION = "2"
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  config.vm.box = "bento/almalinux-9.1"
+
+  #name showing before the @
+  config.vm.hostname = "cypher"
+
+  #known for vagrant command
+  config.vm.define "cypher"
+ 
+  config.vm.provider "virtualbox" do |vb|
+    #name in virtualbox:
+    vb.name = "SEP_cypher"
+    vb.gui = true
+    vb.customize ["modifyvm", :id, "--vram", "128"]
+    vb.customize ["modifyvm", :id, "--hwvirtex", "on"]
+    vb.customize ["modifyvm", :id, "--clipboard", "bidirectional"]
+    vb.customize ["modifyvm", :id, "--memory", 1024]
+    vb.customize ["modifyvm", :id, "--cpus", 1]
+  end
+  
+  config.vm.network "public_network", bridge: "ASIX AX88179 USB 3.0 to Gigabit Ethernet Adapter", ip: "192.168.20.7", netmask: "255.255.255.0", search: "thematrix.local", use_dhcp_assigned_default_route: false
+
+# Run configuration script for the VM
+  config.vm.provision 'shell', path: 'provisioning/cypher.sh'
+end

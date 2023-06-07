@@ -1,0 +1,27 @@
+Containernaam;Prepath;maakgroep
+DomainWorkstations;;
+DomainUsers;;
+PCs;OU=DomainWorkstations;
+Cast;OU=PCs,OU=DomainWorkStations;
+Crew;OU=PCs,OU=DomainWorkStations;
+Directors;OU=Crew,OU=PCs,OU=DomainWorkStations;
+Servers;OU=DomainWorkstations;
+Cast;OU=DomainUsers;JA
+Crew;OU=DomainUsers;JA
+Directors;OU=Crew,OU=DomainUsers;JA
+Producers;OU=Crew,OU=DomainUsers;
+Makeup Department;OU=Crew,OU=DomainUsers;
+Production Management;OU=Crew,OU=DomainUsers;
+Second Unit Director or Assistent Director;OU=Crew,OU=DomainUsers;
+Art Department;OU=Crew,OU=DomainUsers;
+Sound Department;OU=Crew,OU=DomainUsers;
+Camera and Electrical Departement;OU=Crew,OU=DomainUsers;
+Animation Departement;OU=Crew,OU=DomainUsers;
+Casting Department;OU=Crew,OU=DomainUsers;
+Costume and Wardrobe Department;OU=Crew,OU=DomainUsers;
+Editorial Department;OU=Crew,OU=DomainUsers;
+Location Management;OU=Crew,OU=DomainUsers;
+Music Department;OU=Crew,OU=DomainUsers;
+Script and Continuity Department;OU=Crew,OU=DomainUsers;
+Transportation Department;OU=Crew,OU=DomainUsers;
+Additional Crew;OU=Crew,OU=DomainUsers;

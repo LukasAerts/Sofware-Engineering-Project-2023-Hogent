@@ -1,0 +1,88 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# All Vagrant configuration is done below. The "2" in Vagrant.configure
+# configures the configuration version (we support older styles for
+# backwards compatibility). Please don't change it unless you know what
+# you're doing.
+Vagrant.configure("2") do |config|
+  # The most common configuration options are documented and commented below.
+  # For a complete reference, please see the online documentation at
+  # https://docs.vagrantup.com.
+  config.vm.synced_folder "./Shared", "/vagrant", type: "virtualbox"
+
+  # Every Vagrant development environment requires a box. You can search for
+  # boxes at https://vagrantcloud.com/search.
+  config.vm.box = "bento/almalinux-9.1"
+  config.vm.hostname = "dozer"
+  
+  # Add SSH username and password
+  config.ssh.username = "vagrant"
+  config.ssh.password = "vagrant"
+
+  # Create a forwarded port mapping which allows access to a specific port
+  # within the machine from a port on the host machine. In the example below,
+  # accessing "localhost:8080" will access port 80 on the guest machine.
+  # NOTE: This will enable public access to the opened port
+  # config.vm.network "forwarded_port", guest: 80, host: 8080
+  
+  # Create a forwarded port mapping which allows access to a specific port
+  # within the machine from a port on the host machine and only allow access
+  # via 127.0.0.1 to disable public access
+  # Quakejs on 192.168.20.5:27960
+  # HOGENT
+  config.vm.network "forwarded_port", guest: 80, host: 8080, host_ip: "127.0.0.1"
+  # config.vm.network "forwarded_port", guest: 27960, host: 27960, host_ip: "192.168.20.205"
+  # Thuis wifi
+  config.vm.network "forwarded_port", guest: 27960, host: 27960, host_ip: "0.0.0.0"
+  
+  # Create a public network, which generally matched to bridged network.
+  # Bridged networks make the machine appear as another physical device on
+  # your network.
+
+  # Adapter settings:
+  # nic aan te passen voor test
+    config.vm.network "public_network", 
+    bridge: "eth1",
+    nic: "Realtek PCIe GBE Family Controller",
+    ip: "192.168.20.5"  
+
+
+  # HOGENT
+  #config.vm.network "public_network", 
+    #bridge: "eth1",
+    #nic: "Realtek PCIe GBE Family Controller",
+    #ip: "192.168.20.5"  
+    #gateway: "192.168.20.254",
+    #dns: ["192.168.20.1", "8.8.8.8"] 
+
+    
+  # Provider-specific configuration so you can fine-tune various
+  # backing providers for Vagrant. These expose provider-specific options.
+  # Example for VirtualBox:
+  config.vm.provider "virtualbox" do |vb|
+    # Display the VirtualBox GUI when booting the machine
+    vb.gui = true
+    # Name of the virtual machine in virtualbox
+    vb.name = "dozer"
+    # Customize the amount of memory on the VM:
+    vb.memory = "2048"
+    vb.cpus = "1"
+    vb.customize ["modifyvm", :id, "--clipboard-mode", "bidirectional"]
+  end
+
+  # Give the VM Belgian point keyboard layout
+  config.vm.provision "shell", inline: "localectl set-keymap be"
+
+  # Start and enable firewalld
+  #config.vm.provision "shell", inline: "systemctl stop firewalld"
+
+
+  # Provisioning script for the virtual machine
+  config.vm.provision "shell", path: "./Shared/Script/dozer.sh"
+  config.vm.provision "shell", path: "./Shared/Script/emscripten.sh"
+  config.vm.provision "shell", path: "./Shared/Script/shorturl.sh"
+  config.vm.provision "shell", path: "./Shared/Script/quake3.sh"
+end
+
+  

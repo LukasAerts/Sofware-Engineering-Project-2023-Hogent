@@ -1,0 +1,14 @@
+[Unit]
+Description=Mautrix-Discord Bridge service
+After=network.target
+
+[Service]
+Type=simple
+User=root
+Group=root
+WorkingDirectory=/home/vagrant/mautrix-discord
+ExecStart=/bin/bash -c './mautrix-discord'
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,13 @@
+Firstname;Lastname;Initials;Username;Email;Password;Department;OU
+Keanu;Reeves;KeRe;kea_ree;KeanuReeves@TheMatrix.local;22User23;Cast;OU=Cast,OU=DomainUsers,DC=TheMatrix,DC=Local
+Carrie-Anne;Moss;CaMo;car_mos;CarrieAnneMoss@TheMatrix.local;22User23;Cast;OU=Cast,OU=DomainUsers,DC=TheMatrix,DC=Local
+Lana;Wachowski;LaWa;Lan_wac;LanaWachowski@TheMatrix.local;22User23;Directors;OU=Directors,OU=Crew,OU=DomainUsers,DC=TheMatrix,DC=Local
+Lilly;Wachowski;LiWa;Lil_wac;LillyWachowski@TheMatrix.local;22User23;Directors;OU=Directors,OU=Crew,OU=DomainUsers,DC=TheMatrix,DC=Local
+;;;PCCast1;;22pc23;;OU=Cast,OU=PCs,OU=DomainWorkStations,DC=TheMatrix,DC=local
+;;;PCCast2;;22pc23;;OU=Cast,OU=PCs,OU=DomainWorkStations,DC=TheMatrix,DC=local
+;;;PCCrew1;;22pc23;;OU=Crew,OU=PCs,OU=DomainWorkStations,DC=TheMatrix,DC=local
+;;;PCCrew2;;22pc23;;OU=Crew,OU=PCs,OU=DomainWorkStations,DC=TheMatrix,DC=local
+;;;DirectorPC;;22pc23;;OU=Directors,OU=Crew,OU=PCs,OU=DomainWorkStations,DC=TheMatrix,DC=local
+;;;Neo;;22pc23;;OU=Servers,OU=DomainWorkStations,DC=TheMatrix,DC=local
+;;;Trinity;;22pc23;;OU=Servers,OU=DomainWorkStations,DC=TheMatrix,DC=local
+;;;AgentSmith;;22pc23;;OU=Servers,OU=DomainWorkStations,DC=TheMatrix,DC=local
